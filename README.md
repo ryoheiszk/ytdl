@@ -7,6 +7,8 @@
 1. `ytdl_data.json`を編集
 2. `ytdl.exe`を実行
 
+エラーが発生した場合、Pythonファイルによる実行を試す。
+
 ## Pythonファイルによる実行
 
 1. Pythonをインストール
@@ -18,6 +20,13 @@
 
 4. `main.py`を実行
   `python main.py`
+
+エラーが発生した場合、下記のコマンドを実行する。
+
+```bash
+pip install --upgrade pip
+pip install --upgrade youtube-dl
+```
 
 ## コンパイル方法
 
