@@ -1,0 +1,15 @@
+[
+  {
+    "name": "sample1",
+    "videos": [
+      "https://www.youtube.com/watch?v=BaW_jenozKc",
+      "https://www.youtube.com/watch?v=bjmBJ1Fl0cs"
+    ]
+  },
+  {
+    "name": "sample2",
+    "videos": [
+      "https://www.youtube.com/watch?v=t3OouYgmjNs"
+    ]
+  }
+]
