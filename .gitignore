@@ -1,1 +1,4 @@
-*.exe
+.venv/*
+downloads/*
+target.json
+cookies.txt

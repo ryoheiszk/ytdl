@@ -1,23 +1,22 @@
 import json
+from datetime import date
 
-from youtube_dl import YoutubeDL
+import yt_dlp
 
 
-def main(json_path):
-    with open(json_path, "r", encoding="utf-8") as f:
-        ytdl_data = json.load(f)
+urls = json.load(open("target.json"))
+today = date.today().strftime("%Y%m%d")
 
-    for course in ytdl_data:
-        ydl_opts = {
-        "outtmpl": "./yt_videos/{}/%(title)s.%(ext)s".format(course["name"]),
-        "recodevideo": "mp4"
-        }
-        ydl = YoutubeDL(ydl_opts)
 
-        ydl.download(course["videos"])
-
-if __name__ == "__main__":
-    main("ytdl_data.json")
-
-    import subprocess
-    subprocess.call('PAUSE', shell=True)
+with yt_dlp.YoutubeDL({
+    "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+    "merge_output_format": "mp4",
+    "outtmpl": f"downloads/{today}_%(title)s.%(ext)s",
+    "restrictfilenames": True,
+    "ignoreerrors": True,
+    "retries": 10,
+    "fragment_retries": 10,
+    "concurrent_fragment_downloads": 1,
+    "cookiefile": "cookies.txt",
+}) as ydl:
+    ydl.download(urls)
